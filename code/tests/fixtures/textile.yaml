@@ -2636,19 +2636,6 @@ Tables with styles:
     	</tbody>
     </table>
 
-Unlinked footref and footnote :
-  notes  : |
-    Uses the '!' modifier on the footref to turn off linking to the footnote
-    The textile tester removes the random ID from the text returned by textile in this test. This allows the rest of the output to be tested.
-  input  : |
-    See[3!] for details.
-
-    fn3. Here are the details.
-  expect : |
-    <p>See<sup class="footnote" id="fnrev">3</sup> for details.</p>
-
-    <p class="footnote" id="fn"><sup>3</sup> Here are the details.</p>
-
 Backlinked footref to footnote :
   notes  : |
     Uses the '!' modifier on the footref to turn off linking to the footnote
