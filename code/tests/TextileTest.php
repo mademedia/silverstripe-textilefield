@@ -11,6 +11,8 @@ class TextileTest extends SapphireTest {
 				array_key_exists( 'input', $v) &&
 				array_key_exists( 'expect', $v)
 			) {
+				if( array_key_exists('assert', $v ) && $v[ 'assert' ] === 'skip' )
+					continue;
 				$field = new TextileField( 'Test1' );
 echo '<hr /><hr />';
 var_dump( $k );
