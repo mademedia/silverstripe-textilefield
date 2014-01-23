@@ -17,8 +17,8 @@ class TextileTest extends SapphireTest {
 echo '<hr /><hr />';
 var_dump( $k );
 				$field->setValue( $v[ 'input' ] );
-				$strippedCache = strtr( $field->getCache(), array( ' ' => '', '	' => '') );
-				$strippedExpect = strtr( $v[ 'expect' ], array( ' ' => '', '	' => '') );
+				$strippedCache = trim( strtr( $field->getCache(), array( ' ' => '', '	' => '') ) );
+				$strippedExpect = trim( strtr( $v[ 'expect' ], array( ' ' => '', '	' => '') ) );
 				if( array_key_exists( 'note', $v ) ) {
 // var_dump( $field->getCache() );
 					$ret = $this->assertEquals( $strippedExpect, $strippedCache, $v[ 'note' ] );
