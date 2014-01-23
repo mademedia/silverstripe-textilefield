@@ -2636,20 +2636,6 @@ Tables with styles:
     	</tbody>
     </table>
 
-Backlinked footref to footnote :
-  notes  : |
-    Uses the '!' modifier on the footref to turn off linking to the footnote
-    Uses the '^' modifier on the footnote to turn on reverse linking to the *first* use of the corresponding reference
-    The textile tester removes the random ID from the text returned by textile in this test. This allows the rest of the output to be tested.
-  input  : |
-    See[4!] for details.
-
-    fn4^. Here are the details.
-  expect : |
-    <p>See<sup class="footnote" id="fnrev">4</sup> for details.</p>
-
-    <p class="footnote" id="fn"><sup><a href="#fnrev">4</a></sup> Here are the details.</p>
-
 Simple Note Links:
   input: |
     Scientists say[#lavader] the moon is quite small. But I, for one, don't believe them. Others claim it to be made of cheese[#aardman]. If this proves true I suspect we are in for troubled times[#apollo13] as people argue over their "share" of the moon's cheese. In the end, its limited size[#lavader] may prove problematic.
