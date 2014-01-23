@@ -1589,13 +1589,11 @@ Square-brackets :
 
     A close[!http://textpattern.com/favicon.ico!]image.
     A tight["text":http://textpattern.com/]link.
-    A ["footnoted link":http://textpattern.com/][182].
   expect : |
     <p>1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>. 2 log<sub>n</sub></p>
 
     <p>A close<img alt="" src="http://textpattern.com/favicon.ico" />image.<br />
-    A tight<a href="http://textpattern.com/">text</a>link.<br />
-    A <a href="http://textpattern.com/">footnoted link</a><sup class="footnote" id="fnrev"><a href="#fn">182</a></sup>.</p>
+    A tight<a href="http://textpattern.com/">text</a>link.</p>
 
 Issue 50 Bust-a-quotes:
   assert: skip
