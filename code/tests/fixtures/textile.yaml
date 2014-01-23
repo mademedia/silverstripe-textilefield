@@ -3215,28 +3215,19 @@ Restricted mode security filtering mode with default options :
 
     notextile. <iframe src="xss/attempt"></iframe><&#123><script>window.alert('success')</script>
 
-    !http://example.com/<script>window.alert("Hello World!");</script>.png!
-
-    "test":link1
-    [link1]http://example.com/<script>window.alert("HelloWorld!");</script>
-
     <!-- <a href="#">HTTML comment</a> -->
   expect : |
-    <p>!10&#215;10.gif!</p>
+    <p><img alt="" src="10x10.gif" /></p>
 
-    <p>&#8220;bad protocol&#8221;:file://local/file</p>
+    <p><a href="file://local/file">bad protocol</a></p>
 
     <p>&#8220;javascript link&#8221;:javacript:window.alert()</p>
 
-    <p><a href="http://example.com" rel="nofollow">nofollow</a></p>
+    <p><a href="http://example.com">nofollow</a></p>
 
-    <p>notextile. &lt;iframe src=&#8220;xss/attempt&#8221;&gt;&lt;/iframe&gt;&lt;&amp;#123&gt;&lt;script&gt;window.alert(&#8216;success&#8217;)&lt;/script&gt;</p>
+    <iframe src="xss/attempt"></iframe><&#123><script>window.alert('success')</script>
 
-    <p>!http://example.com/&lt;script&gt;window.alert(&#8220;Hello World!&#8221;);&lt;/script&gt;.png!</p>
-
-    <p><a href="http://example.com/%26lt%3Bscript%26gt%3Bwindow.alert%28%22HelloWorld%21%22%29%3B%26lt%3B/script%26gt%3B" rel="nofollow">test</a></p>
-
-    <p>&lt;!&#8212; &lt;a href=&#8221;#&#8221;&gt;<span class="caps">HTTML</span> comment&lt;/a&gt; &#8212;&gt;</p>
+    <p><!-- <a href="#">HTTML comment</a> --></p>
 
 Token references :
   input : |
