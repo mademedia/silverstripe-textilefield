@@ -2877,7 +2877,7 @@ Github Issue 50 (en-dash & strike) :
     b<br />
     a -<br />
     b<br />
-    a &#8211; <br />
+    a -<br />
     b</p>
 
 Tight tables... :
