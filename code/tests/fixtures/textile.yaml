@@ -2636,23 +2636,6 @@ Tables with styles:
     	</tbody>
     </table>
 
-Basic footref & footnote:
-  notes: |
-    Standard footrefs and footnotes from textile 2.0.
-    The textile tester removes the random ID from the text returned by textile in this test. This allows the rest of the output to be tested.
-  input: |
-    See[1] for details -- or perhaps[100] at a push.
-
-    fn1. Here are the details.
-
-    fn100(footy#otherid). A totally unrelated footnote.
-  expect : |
-    <p>See<sup class="footnote" id="fnrev"><a href="#fn">1</a></sup> for details &#8212; or perhaps<sup class="footnote" id="fnrev"><a href="#fn">100</a></sup> at a push.</p>
-
-    <p class="footnote" id="fn"><sup>1</sup> Here are the details.</p>
-
-    <p class="footy" id="otherid"><sup id="fn">100</sup> A totally unrelated footnote.</p>
-
 Cross linked footref and footnote :
   notes  : |
     Uses the '^' modifier on the footnote to turn on reverse linking to the *first* use of the corresponding reference
