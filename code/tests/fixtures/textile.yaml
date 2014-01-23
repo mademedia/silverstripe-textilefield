@@ -2636,19 +2636,6 @@ Tables with styles:
     	</tbody>
     </table>
 
-Cross linked footref and footnote :
-  notes  : |
-    Uses the '^' modifier on the footnote to turn on reverse linking to the *first* use of the corresponding reference
-    The textile tester removes the random ID from the text returned by textile in this test. This allows the rest of the output to be tested.
-  input  : |
-    See[2] for details, and later, reference it again[2].
-
-    fn2^(footy#otherid)[en]. Here are the details.
-  expect : |
-    <p>See<sup class="footnote" id="fnrev"><a href="#fn">2</a></sup> for details, and later, reference it again<sup class="footnote"><a href="#fn">2</a></sup>.</p>
-
-    <p class="footy" id="otherid" lang="en"><sup id="fn"><a href="#fnrev">2</a></sup> Here are the details.</p>
-
 Unlinked footref and footnote :
   notes  : |
     Uses the '!' modifier on the footref to turn off linking to the footnote
