@@ -175,7 +175,7 @@ class TextileField extends DBField implements CompositeDBField {
 	 * @return FormField
 	 */
 	public function scaffoldFormField($title = null) {
-		$field = new TextareaField($this->name);
+		$field = new TextileEditorField($this->name);
 		return $field;
 	}
 	
