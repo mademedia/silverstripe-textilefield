@@ -54,21 +54,38 @@ JS;
 	 * @return string
 	 */
 	function Field() {
-		$value  = $this->value;
-		
-		return $this->createTag (
-			'textarea',
-			array (
-				'class'   => $this->extraClass(),
-				'rows'    => $this->rows,
-				'cols'    => $this->cols,
-				'style'   => 'width: 100%; box-sizing: border-box; height: ' . ($this->rows * 11) . 'px', // prevents horizontal scrollbars
-				'tinymce' => 'true',
-				'id'      => $this->id(),
-				'name'    => $this->name
-			),
-			htmlentities((string) $value, ENT_COMPAT, 'UTF-8')
-		);
+		if($this->readonly) {
+			$attributes = array(
+				'id' => $this->id(),
+				'class' => 'readonly' . ($this->extraClass() ? $this->extraClass() : ''),
+				'name' => $this->name,
+				'tabindex' => $this->getTabIndex(),
+				'readonly' => 'readonly'
+			);
+
+			return $this->createTag(
+				'span',
+				$attributes,
+				(($this->value) ? nl2br(htmlentities($this->value, ENT_COMPAT, 'UTF-8')) : '<i>(' . _t('FormField.NONE', 'none') . ')</i>')
+			);
+		}
+		else {
+			$value  = $this->value;
+
+			return $this->createTag (
+				'textarea',
+				array (
+					'class'   => $this->extraClass(),
+					'rows'    => $this->rows,
+					'cols'    => $this->cols,
+					'style'   => 'width: 100%; box-sizing: border-box; height: ' . ($this->rows * 11) . 'px', // prevents horizontal scrollbars
+					'tinymce' => 'true',
+					'id'      => $this->id(),
+					'name'    => $this->name
+				),
+				htmlentities((string) $value, ENT_COMPAT, 'UTF-8')
+			);
+		}
 	}
 }
 
