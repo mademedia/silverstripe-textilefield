@@ -70,6 +70,12 @@ JS;
 			htmlentities((string) $value, ENT_COMPAT, 'UTF-8')
 		);
 	}
+
+	function performReadonlyTransformation() {
+		$clone = new TextileEditorField_Readonly($this->name);
+		$clone->setValue($this->Value());
+		return $clone;
+	}
 }
 
 /**
